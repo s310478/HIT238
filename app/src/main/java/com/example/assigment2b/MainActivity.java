@@ -5,8 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    //private Spinner spin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         public Button btnL;
         public Button btnR;
 
+        //this.spin = (Spinner) findViewById(R.id.cmbRole);
+
     /*
        Similar types of variables can be declared
        in One line, for instance: Name, Phone
@@ -33,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         public String Username, Email, Password;
 
 
-        public void btnLogIn (View view){
+        public void btnLogInandRegister (View view){
 
             // Getting a Reference to the Views
             txtU = (EditText) findViewById(R.id.txtUsername);
@@ -51,26 +58,30 @@ public class MainActivity extends AppCompatActivity {
             Email = txtE.getText().toString();
             Password = txtP.getText().toString();
 
-            Boolean isUEmpty = false;
+            //Boolean isUEmpty = false;
             Boolean isLogIn = true;
+            Boolean isRegister = true;
 
 
             if (Username.isEmpty() == true) {
                 txtU.setError("Name is a required field");
                 isLogIn = false;
-                isUEmpty = true;
+                isRegister = false;
+                //isUEmpty = true;
 
             }
 
             if (Email.isEmpty() == true || Email.indexOf('@') == -1) {
                 txtE.setError("Email is either empty or incorrectly formatted");
                 isLogIn = false;
+                isRegister = false;
 
             }
 
             if (Password.isEmpty() == true) {
                 txtP.setError("Password is a required field");
                 isLogIn = false;
+                isRegister = false;
 
             }
             /* Both the conditions need to be True
@@ -81,11 +92,11 @@ public class MainActivity extends AppCompatActivity {
             */
 
 
-            if (isLogIn == true) {
+            /*if (isLogIn == true) {
 
                 btnL.setText("Log In");
                 btnL.setEnabled(false);
-                btnR.setEnabled(true);
+                btnR.setEnabled(false);
 
                 // setFocusable(false) will lock the text boxes,
                 // the effect is not visible, but once you try
@@ -96,11 +107,11 @@ public class MainActivity extends AppCompatActivity {
                 txtE.setFocusable(false);
                 Toast.makeText(getApplicationContext(), "Log In", Toast.LENGTH_SHORT).show();
 
-            }
+            }*/
 
         }
 
-        public void btnRegister (View view){
+        /* public void btnRegister (View view){
 
             if (btnR.getText().toString().equals("Register")) {
                 txtU.setText("");
@@ -113,5 +124,5 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
 
-        }
+        } */
     }

@@ -5,9 +5,11 @@
     android:id="@+id/CLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFD2CF"
+    android:background="@drawable/controlbackground"
+    android:backgroundTint="#CBC3E3"
+    android:backgroundTintMode="multiply"
     android:columnCount="2"
-    android:rowCount="7"
+    android:rowCount="4"
     android:useDefaultMargins="false"
     tools:context=".MainActivity">
 
@@ -29,40 +31,60 @@
             android:layout_height="wrap_content"
             android:text="Log In / Register"
             android:textAlignment="center"
-            android:textSize="34sp" />
+            android:textSize="34sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:textAllCaps="false" />
 
         <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
-            android:layout_height="163dp"
+            android:layout_height="174dp"
             app:columnCount="2"
-            app:rowCount="3">
+            app:rowCount="4">
 
             <TextView
                 android:id="@+id/lblUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:text="Username"
+                android:text="Username:"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 app:layout_column="0"
+                app:layout_gravity="right"
                 app:layout_row="0" />
 
             <TextView
                 android:id="@+id/lblEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:text="Email"
+                android:text="Email:"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 app:layout_column="0"
+                app:layout_gravity="right"
                 app:layout_row="1" />
 
             <TextView
                 android:id="@+id/lblPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:text="Password"
+                android:text="Password:"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 app:layout_column="0"
+                app:layout_gravity="right"
                 app:layout_row="2" />
+
+            <TextView
+                android:id="@+id/lblRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Role:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_column="0"
+                app:layout_gravity="right"
+                app:layout_row="3" />
 
             <EditText
                 android:id="@+id/txtUsername"
@@ -91,6 +113,15 @@
                 app:layout_column="1"
                 app:layout_row="2" />
 
+            <Spinner
+                android:id="@+id/cmbRole"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:drawSelectorOnTop="True"
+                android:entries="@array/roleType"
+                app:layout_column="1"
+                app:layout_row="3" />
+
         </androidx.gridlayout.widget.GridLayout>
 
         <LinearLayout
@@ -104,20 +135,21 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:insetLeft="50dp"
-                android:onClick="btnLogIn"
+                android:insetRight="5dp"
+                android:onClick="btnLogInandRegister"
                 android:text="Log In"
-                app:backgroundTint="#4CAF50" />
+                app:backgroundTint="#0096FF" />
 
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:enabled="false"
+                android:insetLeft="5dp"
                 android:insetRight="50dp"
-                android:onClick="btnRegister"
+                android:onClick="btnLogInandRegister"
                 android:text="Register"
-                app:toggleCheckedStateOnClick="false" />
+                app:backgroundTint="#0096FF" />
 
         </LinearLayout>
     </LinearLayout>

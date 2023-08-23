@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Assigment2B</string>
+    <string-array name="roleType">
+        <item>Customer</item>
+        <item>Admin</item>
+    </string-array>
 </resources>
