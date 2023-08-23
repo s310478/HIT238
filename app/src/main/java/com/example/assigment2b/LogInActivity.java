@@ -6,17 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class LogInActivity extends AppCompatActivity {
 
     //private Spinner spin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
     }
 
         // Declaring the variables within a class-scope

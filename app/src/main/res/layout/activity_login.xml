@@ -11,7 +11,7 @@
     android:columnCount="2"
     android:rowCount="4"
     android:useDefaultMargins="false"
-    tools:context=".MainActivity">
+    tools:context=".LogInActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -126,13 +126,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="270dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnLogIn"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:insetLeft="50dp"
                 android:insetRight="5dp"
@@ -143,7 +143,7 @@
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:insetLeft="5dp"
                 android:insetRight="50dp"
@@ -151,6 +151,51 @@
                 android:text="Register"
                 app:backgroundTint="#0096FF" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#6200ee"
+                android:scaleType="fitCenter"
+                android:src="@drawable/home" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#6200ee"
+                android:scaleType="fitCenter"
+                android:src="@drawable/lists" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#6200ee"
+                android:scaleType="fitCenter"
+                android:src="@drawable/collection" />
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#6200ee"
+                android:scaleType="fitCenter"
+                android:src="@drawable/account" />
         </LinearLayout>
     </LinearLayout>
 

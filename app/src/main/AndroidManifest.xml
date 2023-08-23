@@ -14,7 +14,13 @@
         android:theme="@style/Theme.Assigment2B"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LogInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
