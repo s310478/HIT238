@@ -2,6 +2,7 @@ package com.example.assigment2b;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -82,6 +83,14 @@ public class LogInActivity extends AppCompatActivity {
                 isRegister = false;
 
             }
+
+            if (isLogIn == true) {
+
+                Intent i = new Intent(this, HomeActivity.class);
+                i.putExtra("username", txtU.getText().toString());
+
+                startActivity(i);
+            }
             /* Both the conditions need to be True
             if (Username.matches(".*\\d.*") && isUEmpty == false) {
                 txtU.setError("Name can only have characters");
@@ -123,4 +132,30 @@ public class LogInActivity extends AppCompatActivity {
             }
 
         } */
+
+    public void showHome(View view) {
+
+        Intent i = new Intent(this, HomeActivity.class);
+        startActivity(i);
+    }
+
+    //Change class bellow to WishActivity when created
+    public void showWish(View view) {
+
+        Intent i = new Intent(this, HomeActivity.class);
+        startActivity(i);
+    }
+    //Change class bellow to CollectionActivity when created
+    public void showCollection(View view) {
+
+        Intent i = new Intent(this, HomeActivity.class);
+        startActivity(i);
+    }
+
+    public void showAccount(View view) {
+
+        Intent i = new Intent(this, AccountActivity.class);
+        startActivity(i);
+    }
+
     }
