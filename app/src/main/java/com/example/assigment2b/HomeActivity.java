@@ -28,6 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    public TextView txtU;
 
 
     public void showLogIn(View view) {
@@ -38,25 +39,38 @@ public class HomeActivity extends AppCompatActivity {
 
     public void showHome(View view) {
 
+        txtU = (TextView) findViewById(R.id.lblUser);
+
         Intent i = new Intent(this, HomeActivity.class);
+        i.putExtra("username", txtU.getText().toString());
         startActivity(i);
     }
 
     public void showWish(View view) {
 
+        txtU = (TextView) findViewById(R.id.lblUser);
+
         Intent i = new Intent(this, HomeActivity.class);
+        i.putExtra("username", txtU.getText().toString());
         startActivity(i);
     }
 
     public void showCollection(View view) {
 
+        txtU = (TextView) findViewById(R.id.lblUser);
+
         Intent i = new Intent(this, HomeActivity.class);
+        i.putExtra("username", txtU.getText().toString());
         startActivity(i);
     }
 
     public void showAccount(View view) {
 
+        txtU = (TextView) findViewById(R.id.lblUser);
+
         Intent i = new Intent(this, AccountActivity.class);
+        i.putExtra("username", txtU.getText().toString());
         startActivity(i);
+
     }
 }

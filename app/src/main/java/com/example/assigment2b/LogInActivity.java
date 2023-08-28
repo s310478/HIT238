@@ -133,6 +133,7 @@ public class LogInActivity extends AppCompatActivity {
 
         } */
 
+    //Bottom menu bar
     public void showHome(View view) {
 
         Intent i = new Intent(this, HomeActivity.class);
