@@ -140,7 +140,7 @@
                 android:insetRight="5dp"
                 android:onClick="btnLogInandRegister"
                 android:text="Log In"
-                app:backgroundTint="#0096FF" />
+                app:backgroundTint="#6200ee" />
 
             <Button
                 android:id="@+id/btnRegister"
@@ -151,7 +151,7 @@
                 android:insetRight="50dp"
                 android:onClick="btnLogInandRegister"
                 android:text="Register"
-                app:backgroundTint="#0096FF" />
+                app:backgroundTint="#6200ee" />
 
         </LinearLayout>
 

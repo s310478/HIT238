@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
 
     private TextView txtUsr;
+    public TextView txtU;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
 
         this.txtUsr = (TextView) findViewById(R.id.lblUser);
 
+        // Display username entered at log in activity, otherwise 'Log In' is displayed.
         Intent i = getIntent();
         String username = i.getStringExtra("username");
         if (username == null) {
@@ -28,9 +33,23 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    public TextView txtU;
+    // Wish notification
+   public void addWish(View view) {
+
+       Toast.makeText(getApplicationContext(), "Added to Wishlist", Toast.LENGTH_LONG).show();
+   }
+
+   // Collection notification
+    public void addCollection(View view) {
+
+        Toast.makeText(getApplicationContext(), "Added to Collection", Toast.LENGTH_LONG).show();
+    }
 
 
+
+
+
+    //Bottom task bar & log in buttons
     public void showLogIn(View view) {
 
         Intent i = new Intent(this, LogInActivity.class);
@@ -50,6 +69,7 @@ public class HomeActivity extends AppCompatActivity {
 
         txtU = (TextView) findViewById(R.id.lblUser);
 
+        //Change this to WishActivity.class when created
         Intent i = new Intent(this, HomeActivity.class);
         i.putExtra("username", txtU.getText().toString());
         startActivity(i);
@@ -59,6 +79,7 @@ public class HomeActivity extends AppCompatActivity {
 
         txtU = (TextView) findViewById(R.id.lblUser);
 
+        //Change this to CollectionActivity.class when created
         Intent i = new Intent(this, HomeActivity.class);
         i.putExtra("username", txtU.getText().toString());
         startActivity(i);

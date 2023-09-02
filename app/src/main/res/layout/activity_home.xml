@@ -64,7 +64,7 @@
             app:rowCount="2">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imgGame1"
                 android:layout_width="120dp"
                 android:layout_height="220dp"
                 app:layout_column="0"
@@ -72,7 +72,7 @@
                 app:srcCompat="@drawable/mario" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imgGame2"
                 android:layout_width="120dp"
                 android:layout_height="200dp"
                 app:layout_column="0"
@@ -93,7 +93,7 @@
                     app:layout_row="0">
 
                     <TextView
-                        android:id="@+id/gameTitle1"
+                        android:id="@+id/lblGameTitle1"
                         android:layout_width="190dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.3"
@@ -119,11 +119,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textView3"
+                    <RatingBar
+                        android:id="@+id/ratingBar1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="stars here" />
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:numStars="5"
+                        android:stepSize="1"
+                        android:rating="4"
+                        android:progressTint="#FBEC50" />
+
                 </TableRow>
 
                 <TableRow
@@ -131,21 +136,23 @@
                     android:layout_height="match_parent">
 
                     <ImageButton
-                        android:id="@+id/imageButton"
+                        android:id="@+id/btnAddWish"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:backgroundTint="#6200ee"
                         android:scaleType="fitCenter"
+                        android:onClick="addWish"
                         app:srcCompat="@drawable/addlist" />
 
                     <ImageButton
-                        android:id="@+id/imageButton2"
+                        android:id="@+id/btnAddCollection"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:backgroundTint="#6200ee"
                         android:scaleType="fitCenter"
+                        android:onClick="addCollection"
                         app:srcCompat="@drawable/addcollection" />
                 </TableRow>
 
@@ -154,7 +161,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/txtAddWish"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -163,7 +170,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/txtAddCollection"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -190,7 +197,7 @@
                     app:layout_row="0">
 
                     <TextView
-                        android:id="@+id/gameTitle2"
+                        android:id="@+id/lblGameTitle2"
                         android:layout_width="190dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.3"
@@ -216,11 +223,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textView3"
+                    <RatingBar
+                        android:id="@+id/ratingBar1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="stars here" />
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:numStars="5"
+                        android:stepSize="1"
+                        android:rating="5"
+                        android:progressTint="#FBEC50" />
+
                 </TableRow>
 
                 <TableRow
@@ -228,21 +240,23 @@
                     android:layout_height="match_parent">
 
                     <ImageButton
-                        android:id="@+id/imageButton3"
+                        android:id="@+id/btnAddWish"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:backgroundTint="#6200ee"
                         android:scaleType="fitCenter"
+                        android:onClick="addWish"
                         app:srcCompat="@drawable/addlist" />
 
                     <ImageButton
-                        android:id="@+id/imageButton4"
+                        android:id="@+id/btnAddCollection"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:backgroundTint="#6200ee"
                         android:scaleType="fitCenter"
+                        android:onClick="addCollection"
                         app:srcCompat="@drawable/addcollection" />
                 </TableRow>
 
@@ -251,7 +265,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/txtAddWish"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -260,7 +274,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/txtAddCollection"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
