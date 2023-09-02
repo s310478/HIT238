@@ -133,9 +133,9 @@
 
             <Button
                 android:id="@+id/btnLogIn"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_weight="5"
                 android:insetLeft="50dp"
                 android:insetRight="5dp"
                 android:onClick="btnLogInandRegister"
@@ -144,9 +144,9 @@
 
             <Button
                 android:id="@+id/btnRegister"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_weight="5"
                 android:insetLeft="5dp"
                 android:insetRight="50dp"
                 android:onClick="btnLogInandRegister"

@@ -56,10 +56,223 @@
                 app:srcCompat="@drawable/log_in" />
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
             android:layout_height="444dp"
-            android:orientation="horizontal"></LinearLayout>
+            android:layout_marginLeft="5dp"
+            app:columnCount="2"
+            app:rowCount="2">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="120dp"
+                android:layout_height="220dp"
+                app:layout_column="0"
+                app:layout_row="0"
+                app:srcCompat="@drawable/mario" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="120dp"
+                android:layout_height="200dp"
+                app:layout_column="0"
+                app:layout_row="1"
+                app:srcCompat="@drawable/zelda" />
+
+            <TableLayout
+                android:layout_width="270dp"
+                android:layout_height="190dp"
+                android:padding="5dp"
+                app:layout_column="1"
+                app:layout_row="0">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_column="0"
+                    app:layout_row="0">
+
+                    <TextView
+                        android:id="@+id/gameTitle1"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:text="Super Mario Odyssey"
+                        android:textColor="#000000"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/price1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="$99"
+                        android:textColor="#000000"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="stars here" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addlist" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addcollection" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Add to Wishlist"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Add to Collection"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="270dp"
+                android:layout_height="190dp"
+                android:padding="5dp"
+                app:layout_column="1"
+                app:layout_row="1">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_column="0"
+                    app:layout_row="0">
+
+                    <TextView
+                        android:id="@+id/gameTitle2"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:text="The Legend of Zelda: Breath of the Wild"
+                        android:textColor="#000000"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/price2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="$89"
+                        android:textColor="#000000"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="stars here" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addlist" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addcollection" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Add to Wishlist"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Add to Collection"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </androidx.gridlayout.widget.GridLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,8 +308,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#6200ee"
-                android:scaleType="fitCenter"
                 android:onClick="showCollection"
+                android:scaleType="fitCenter"
                 android:src="@drawable/collection" />
 
             <ImageButton
