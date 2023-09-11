@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountActivity"
     android:background="@drawable/controlbackground"
     android:backgroundTint="#CBC3E3"
-    android:backgroundTintMode="multiply">
+    android:backgroundTintMode="multiply"
+    app:layout_anchorGravity="center"
+    tools:context=".AccountActivity">
 
 
     <LinearLayout
@@ -50,16 +51,154 @@
                 android:id="@+id/imageButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="showLogIn"
                 android:backgroundTint="#6200ee"
+                android:onClick="showLogIn"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/log_in" />
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
-            android:layout_height="444dp"
-            android:orientation="horizontal"></LinearLayout>
+            android:layout_height="394dp"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/lblEmail2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_column="0"
+                app:layout_gravity="right"
+                app:layout_row="2" />
+
+            <TextView
+                android:id="@+id/lblPassword2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_column="0"
+                app:layout_gravity="right"
+                app:layout_row="3" />
+
+            <TextView
+                android:id="@+id/lblUsername2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_column="0"
+                app:layout_gravity="right"
+                app:layout_row="1" />
+
+            <EditText
+                android:id="@+id/txtUsername2"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_column="1"
+                app:layout_row="1" />
+
+            <EditText
+                android:id="@+id/txtEmail2"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                app:layout_column="1"
+                app:layout_row="2" />
+
+            <EditText
+                android:id="@+id/txtPassword2"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                app:layout_column="1"
+                app:layout_row="3" />
+
+            <TextView
+                android:id="@+id/lblProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile Pic:"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_column="0"
+                app:layout_gravity="bottom"
+                app:layout_row="0" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                app:layout_column="1"
+                app:layout_row="0"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/lblDOB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="D.O.B:"
+                app:layout_gravity="right"
+                app:layout_column="0"
+                app:layout_row="4" />
+
+            <TextView
+                android:id="@+id/lblAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="Address:"
+                app:layout_gravity="right"
+                app:layout_column="0"
+                app:layout_row="5" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Select Date"
+                app:layout_gravity="center"
+                app:layout_column="1"
+                app:layout_row="4" />
+
+            <AutoCompleteTextView
+                android:id="@+id/autoAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:hint="Enter State"
+                android:textColor="#000000"
+                app:layout_column="1"
+                app:layout_gravity="center_horizontal"
+                app:layout_row="5" />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="136dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:text="Save"
+                app:iconGravity="end" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -75,8 +214,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#6200ee"
-                android:scaleType="fitCenter"
                 android:onClick="showHome"
+                android:scaleType="fitCenter"
                 android:src="@drawable/home" />
 
             <ImageButton
@@ -85,8 +224,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#6200ee"
-                android:scaleType="fitCenter"
                 android:onClick="showWish"
+                android:scaleType="fitCenter"
                 android:src="@drawable/lists" />
 
             <ImageButton
@@ -95,8 +234,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#6200ee"
-                android:scaleType="fitCenter"
                 android:onClick="showCollection"
+                android:scaleType="fitCenter"
                 android:src="@drawable/collection" />
 
             <ImageButton
@@ -105,8 +244,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#6200ee"
-                android:scaleType="fitCenter"
                 android:onClick="showAccount"
+                android:scaleType="fitCenter"
                 android:src="@drawable/account" />
         </LinearLayout>
 

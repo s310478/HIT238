@@ -72,8 +72,8 @@ public class LogInActivity extends AppCompatActivity {
 
             if (Email.isEmpty() == true || Email.indexOf('@') == -1) {
                 txtE.setError("Email is either empty or incorrectly formatted");
-                isLogIn = false;
-                isRegister = false;
+                isLogIn = true;
+                isRegister = false; //not working
 
             }
 
@@ -85,6 +85,14 @@ public class LogInActivity extends AppCompatActivity {
             }
 
             if (isLogIn == true) {
+
+                Intent i = new Intent(this, HomeActivity.class);
+                i.putExtra("username", txtU.getText().toString());
+
+                startActivity(i);
+            }
+
+            if (isRegister == true) {
 
                 Intent i = new Intent(this, HomeActivity.class);
                 i.putExtra("username", txtU.getText().toString());
