@@ -11,8 +11,9 @@ import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private TextView txtUsr;
-    public TextView txtU;
+    private TextView txtUsr; // Used to display username in log in field (top right)
+    private String email;  // Used to store email for other activities
+    private String password; // Used to store password for other activities
 
 
     @Override
@@ -20,18 +21,25 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
+        // Initialize username
         this.txtUsr = (TextView) findViewById(R.id.lblUser);
 
         // Display username entered at log in activity, otherwise 'Log In' is displayed.
         Intent i = getIntent();
         String username = i.getStringExtra("username");
-        if (username == null) {
-            txtUsr.setText("Log In");
+
+        email = i.getStringExtra("email"); // email is assigned from the intent
+        password = i.getStringExtra("password"); // password is assigned from the intent
+
+        if (username == null || username == "Log In") {
+            txtUsr.setText("Log In"); // Display "Log in" or
         }else {
-            txtUsr.setText(username);
+            txtUsr.setText(username); // Display username
         }
+
+        //
     }
+
 
     // Wish notification
    public void addWish(View view) {
@@ -45,11 +53,10 @@ public class HomeActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Added to Collection", Toast.LENGTH_LONG).show();
     }
 
+    // Used to pass on current username to other activities
+    public TextView txtU;
 
-
-
-
-    //Bottom task bar & log in buttons
+    // Bottom nav bar & log in buttons
     public void showLogIn(View view) {
 
         Intent i = new Intent(this, LogInActivity.class);
@@ -62,6 +69,8 @@ public class HomeActivity extends AppCompatActivity {
 
         Intent i = new Intent(this, HomeActivity.class);
         i.putExtra("username", txtU.getText().toString());
+        i.putExtra("email", email);
+        i.putExtra("password", password);
         startActivity(i);
     }
 
@@ -91,6 +100,8 @@ public class HomeActivity extends AppCompatActivity {
 
         Intent i = new Intent(this, AccountActivity.class);
         i.putExtra("username", txtU.getText().toString());
+        i.putExtra("email", email);
+        i.putExtra("password", password);
         startActivity(i);
 
     }

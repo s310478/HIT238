@@ -18,10 +18,7 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
-        // Declaring the variables within a class-scope
-        // so that all the variables are available for
-        // both the button-methods.
-
+        // Variables for Username, Email, Password, Log in & Register buttons
         public EditText txtU;
         public EditText txtE;
         public EditText txtP;
@@ -30,34 +27,26 @@ public class LogInActivity extends AppCompatActivity {
 
         //this.spin = (Spinner) findViewById(R.id.cmbRole);
 
-    /*
-       Similar types of variables can be declared
-       in One line, for instance: Name, Phone
-       and Email all are of type String
-    */
-
+        // String variables to hold values
         public String Username, Email, Password;
 
 
         public void btnLogInandRegister (View view){
 
-            // Getting a Reference to the Views
+            // Initialize the variables with UI components
             txtU = (EditText) findViewById(R.id.txtUsername);
             txtE = (EditText) findViewById(R.id.txtEmail);
             txtP = (EditText) findViewById(R.id.txtPassword);
             btnL = (Button) findViewById(R.id.btnLogIn);
             btnR = (Button) findViewById(R.id.btnRegister);
 
-        /*
-         getText() returns a text Object, toString()
-         converts it to a text
-        */
-
+            // Extract the string values from the UI components
             Username = txtU.getText().toString();
             Email = txtE.getText().toString();
             Password = txtP.getText().toString();
 
-            //Boolean isUEmpty = false;
+            // Booleans for log in & register authentication
+            // isUEmpty = false;
             Boolean isLogIn = true;
             Boolean isRegister = true;
 
@@ -88,6 +77,8 @@ public class LogInActivity extends AppCompatActivity {
 
                 Intent i = new Intent(this, HomeActivity.class);
                 i.putExtra("username", txtU.getText().toString());
+                i.putExtra("email", txtE.getText().toString());
+                i.putExtra("password", txtP.getText().toString());
 
                 startActivity(i);
             }
@@ -96,52 +87,15 @@ public class LogInActivity extends AppCompatActivity {
 
                 Intent i = new Intent(this, HomeActivity.class);
                 i.putExtra("username", txtU.getText().toString());
+                i.putExtra("email", txtE.getText().toString());
+                i.putExtra("password", txtP.getText().toString());
 
                 startActivity(i);
             }
-            /* Both the conditions need to be True
-            if (Username.matches(".*\\d.*") && isUEmpty == false) {
-                txtU.setError("Name can only have characters");
-                isVerified = false;
-            }
-            */
-
-
-            /*if (isLogIn == true) {
-
-                btnL.setText("Log In");
-                btnL.setEnabled(false);
-                btnR.setEnabled(false);
-
-                // setFocusable(false) will lock the text boxes,
-                // the effect is not visible, but once you try
-                // to update the text, you will find it NOT editable
-
-                txtU.setFocusable(false);
-                txtP.setFocusable(false);
-                txtE.setFocusable(false);
-                Toast.makeText(getApplicationContext(), "Log In", Toast.LENGTH_SHORT).show();
-
-            }*/
 
         }
 
-        /* public void btnRegister (View view){
-
-            if (btnR.getText().toString().equals("Register")) {
-                txtU.setText("");
-                txtP.setText("");
-                txtE.setText("");
-                btnR.setText("Exit");
-                Toast.makeText(getApplicationContext(), "Registered Successfully - Name: " + Username, Toast.LENGTH_LONG).show();
-            } else {
-                finish();
-                System.exit(0);
-            }
-
-        } */
-
-    //Bottom menu bar
+    //Bottom nav bar
     public void showHome(View view) {
 
         Intent i = new Intent(this, HomeActivity.class);
@@ -167,4 +121,4 @@ public class LogInActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    }
+}

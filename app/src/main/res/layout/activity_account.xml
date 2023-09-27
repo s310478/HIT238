@@ -99,6 +99,7 @@
                 android:id="@+id/txtUsername2"
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
+                android:hint=""
                 android:ems="10"
                 android:inputType="textPersonName"
                 app:layout_column="1"
@@ -154,12 +155,12 @@
                 app:layout_row="4" />
 
             <TextView
-                android:id="@+id/lblAddress"
+                android:id="@+id/lblCountry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:text="Address:"
+                android:text="Country:"
                 app:layout_gravity="right"
                 app:layout_column="0"
                 app:layout_row="5" />
@@ -178,9 +179,9 @@
                 android:id="@+id/autoAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:hint="Enter State"
+                android:hint="Enter Country"
                 android:textColor="#000000"
+                android:textSize="20sp"
                 app:layout_column="1"
                 app:layout_gravity="center_horizontal"
                 app:layout_row="5" />
