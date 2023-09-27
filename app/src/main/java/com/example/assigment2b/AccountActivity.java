@@ -2,26 +2,49 @@ package com.example.assigment2b;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class AccountActivity extends AppCompatActivity {
-    // Fot selecting Address
+    // For selecting Address
     String[] stateList = {"NT, Australia", "QLD, Australia", "NSW, Australia", "VIC, Australia",
             "TAS, Australia","SA, Australia", "WA, Australia"};
 
     private TextView txtUsr;
+
+    // For editing profile pic
+    private ImageView imgProfile;
+    private Button btnProfile;
+    Uri imageUri;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == 1){
+
+            requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE}, 2909);
+
+            imageUri = data.getData();
+            imgProfile.setImageURI(imageUri);
+        }
+    }
+
 
 
     private static final String TAG = "AccountActivity";
@@ -34,7 +57,14 @@ public class AccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-        mDisplayDate = (TextView) findViewById(R.id.tvDate);
+
+        //Profile pic
+        btnProfile = (Button)findViewById(R.id.btnProfile);
+        imgProfile = (ImageView)findViewById(R.id.imgProfile);
+
+
+        //Date of Birth
+        mDisplayDate = (TextView) findViewById(R.id.tvDOB);
 
         //Auto complete
         //initiate an auto complete text view
@@ -92,6 +122,26 @@ public class AccountActivity extends AppCompatActivity {
             txtUsr.setText(username);
         }
     }
+
+    // For Profile pic edit
+    public void editPic(View v)
+    {
+        Intent PickerIntent = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        //noinspection deprecation
+        startActivityForResult(PickerIntent, 1);
+    }
+
+    //-------------------
+
+    public void newSave(View view) {
+
+        Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
+    }
+
+
+
+
     //For username across pages/activities
     public TextView txtU;
 
@@ -102,6 +152,7 @@ public class AccountActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    // Bottom Nav Bar
     public void showHome(View view) {
 
         txtU = (TextView) findViewById(R.id.lblUser);

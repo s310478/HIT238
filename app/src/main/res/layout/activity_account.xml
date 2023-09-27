@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/imglogo" />
@@ -48,7 +48,7 @@
                 android:textSize="20sp" />
 
             <ImageButton
-                android:id="@+id/imageButton3"
+                android:id="@+id/btnLogInOut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#6200ee"
@@ -59,7 +59,7 @@
 
         <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
-            android:layout_height="394dp"
+            android:layout_height="344dp"
             android:layout_marginLeft="20dp">
 
             <TextView
@@ -134,12 +134,13 @@
                 app:layout_row="0" />
 
             <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:id="@+id/imgProfile"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 app:layout_column="1"
+                app:layout_gravity="bottom|left"
                 app:layout_row="0"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:srcCompat="@drawable/user" />
 
             <TextView
                 android:id="@+id/lblDOB"
@@ -164,7 +165,7 @@
                 app:layout_row="5" />
 
             <TextView
-                android:id="@+id/tvDate"
+                android:id="@+id/tvDOB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -184,17 +185,30 @@
                 app:layout_gravity="center_horizontal"
                 app:layout_row="5" />
 
+            <Button
+                android:id="@+id/btnProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="135dp"
+                android:text="Edit"
+                android:onClick="editPic"
+                app:layout_column="1"
+                app:layout_gravity="bottom|left"
+                app:layout_row="0" />
+
         </androidx.gridlayout.widget.GridLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="100dp">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnSave"
                 android:layout_width="136dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
+                android:layout_gravity="top|center"
+                android:onClick="newSave"
                 android:text="Save"
                 app:iconGravity="end" />
 
