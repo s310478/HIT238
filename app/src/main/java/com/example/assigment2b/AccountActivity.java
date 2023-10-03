@@ -181,7 +181,7 @@ public class AccountActivity extends AppCompatActivity {
         txtU = (EditText) findViewById(R.id.txtUsername2);
         txtE = (EditText) findViewById(R.id.txtEmail2);
         txtP = (EditText) findViewById(R.id.txtPassword2);
-        txtD = (TextView) findViewById(R.id.tvDOB)
+        txtD = (TextView) findViewById(R.id.tvDOB);
 
         // Extract the string values from the UI components
         Username2 = txtU.getText().toString();

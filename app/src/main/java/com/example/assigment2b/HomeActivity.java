@@ -21,6 +21,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
         // Initialize username
         this.txtUsr = (TextView) findViewById(R.id.lblUser);
 

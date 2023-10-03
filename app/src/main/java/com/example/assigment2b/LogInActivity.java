@@ -31,7 +31,7 @@ public class LogInActivity extends AppCompatActivity {
         public String Username, Email, Password;
 
 
-        public void btnLogInandRegister (View view){
+        public void btnLogInandRegister (View view) {
 
             // Initialize the variables with UI components
             txtU = (EditText) findViewById(R.id.txtUsername);
@@ -46,54 +46,53 @@ public class LogInActivity extends AppCompatActivity {
             Password = txtP.getText().toString();
 
             // Booleans for log in & register authentication
-            // isUEmpty = false;
             Boolean isLogIn = true;
             Boolean isRegister = true;
 
+            // Identifies button pressed
+            boolean isLoginButton = view.getId() == R.id.btnLogIn;
+            boolean isRegisterButton = view.getId() == R.id.btnRegister;
 
-            if (Username.isEmpty() == true) {
-                txtU.setError("Name is a required field");
-                isLogIn = false;
-                isRegister = false;
-                //isUEmpty = true;
-
+            // Logic for log in
+            if (isLoginButton) {
+                if ((!Username.isEmpty() || !Email.isEmpty() && Email.contains("@")) && !Password.isEmpty()) {
+                    // Navigate to home activity after successful login
+                    Intent i = new Intent(this, HomeActivity.class);
+                    i.putExtra("username", txtU.getText().toString());
+                    i.putExtra("email", txtE.getText().toString());
+                    i.putExtra("password", txtP.getText().toString());
+                    startActivity(i);
+                } else {
+                    if (Username.isEmpty() && Email.isEmpty()) {
+                        txtU.setError("Either Username or Email is required");
+                        txtE.setError("Either Username or Email is required");
+                    } else if (!Email.isEmpty() && !Email.contains("@")) {
+                        txtE.setError("A valid Email is required '@'");
+                    }
+                    if (Password.isEmpty()) {
+                        txtP.setError("Password is required");
+                    }
+                }
             }
 
-            if (Email.isEmpty() == true || Email.indexOf('@') == -1) {
-                txtE.setError("Email is either empty or incorrectly formatted");
-                isLogIn = true;
-                isRegister = false; //not working
-
+            // Logic for registration
+            if (isRegisterButton) {
+                if (!Username.isEmpty() && !Email.isEmpty() && Email.contains("@") && !Password.isEmpty()) {
+                    // Navigate to home activity after successful registration
+                    Intent i = new Intent(this, HomeActivity.class);
+                    i.putExtra("username", txtU.getText().toString());
+                    i.putExtra("email", txtE.getText().toString());
+                    i.putExtra("password", txtP.getText().toString());
+                    startActivity(i);
+                } else {
+                    if (Username.isEmpty()) txtU.setError("Name is required");
+                    if (Email.isEmpty() || !Email.contains("@"))
+                        txtE.setError("Valid Email is required '@'");
+                    if (Password.isEmpty()) txtP.setError("Password is required");
+                }
             }
-
-            if (Password.isEmpty() == true) {
-                txtP.setError("Password is a required field");
-                isLogIn = false;
-                isRegister = false;
-
-            }
-
-            if (isLogIn == true) {
-
-                Intent i = new Intent(this, HomeActivity.class);
-                i.putExtra("username", txtU.getText().toString());
-                i.putExtra("email", txtE.getText().toString());
-                i.putExtra("password", txtP.getText().toString());
-
-                startActivity(i);
-            }
-
-            if (isRegister == true) {
-
-                Intent i = new Intent(this, HomeActivity.class);
-                i.putExtra("username", txtU.getText().toString());
-                i.putExtra("email", txtE.getText().toString());
-                i.putExtra("password", txtP.getText().toString());
-
-                startActivity(i);
-            }
-
         }
+
 
     //Bottom nav bar
     public void showHome(View view) {
