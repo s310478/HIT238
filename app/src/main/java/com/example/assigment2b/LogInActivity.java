@@ -22,8 +22,6 @@ public class LogInActivity extends AppCompatActivity {
         public EditText txtU;
         public EditText txtE;
         public EditText txtP;
-        public Button btnL;
-        public Button btnR;
 
         //this.spin = (Spinner) findViewById(R.id.cmbRole);
 
@@ -37,8 +35,6 @@ public class LogInActivity extends AppCompatActivity {
             txtU = (EditText) findViewById(R.id.txtUsername);
             txtE = (EditText) findViewById(R.id.txtEmail);
             txtP = (EditText) findViewById(R.id.txtPassword);
-            btnL = (Button) findViewById(R.id.btnLogIn);
-            btnR = (Button) findViewById(R.id.btnRegister);
 
             // Extract the string values from the UI components
             Username = txtU.getText().toString();
@@ -52,15 +48,19 @@ public class LogInActivity extends AppCompatActivity {
             // Identifies button pressed
             boolean isLoginButton = view.getId() == R.id.btnLogIn;
             boolean isRegisterButton = view.getId() == R.id.btnRegister;
+            // Identify role choice
+            Spinner spinner = findViewById(R.id.cmbRole);
+            String Role = spinner.getSelectedItem().toString();
 
             // Logic for log in
             if (isLoginButton) {
                 if ((!Username.isEmpty() || !Email.isEmpty() && Email.contains("@")) && !Password.isEmpty()) {
                     // Navigate to home activity after successful login
                     Intent i = new Intent(this, HomeActivity.class);
-                    i.putExtra("username", txtU.getText().toString());
-                    i.putExtra("email", txtE.getText().toString());
-                    i.putExtra("password", txtP.getText().toString());
+                    i.putExtra("username", Username);
+                    i.putExtra("email", Email);
+                    i.putExtra("password", Password);
+                    i.putExtra("role", Role);
                     startActivity(i);
                 } else {
                     if (Username.isEmpty() && Email.isEmpty()) {
@@ -80,9 +80,10 @@ public class LogInActivity extends AppCompatActivity {
                 if (!Username.isEmpty() && !Email.isEmpty() && Email.contains("@") && !Password.isEmpty()) {
                     // Navigate to home activity after successful registration
                     Intent i = new Intent(this, HomeActivity.class);
-                    i.putExtra("username", txtU.getText().toString());
-                    i.putExtra("email", txtE.getText().toString());
-                    i.putExtra("password", txtP.getText().toString());
+                    i.putExtra("username", Username);
+                    i.putExtra("email", Email);
+                    i.putExtra("password", Password);
+                    i.putExtra("role", Role);
                     startActivity(i);
                 } else {
                     if (Username.isEmpty()) txtU.setError("Name is required");
@@ -94,7 +95,7 @@ public class LogInActivity extends AppCompatActivity {
         }
 
 
-    //Bottom nav bar
+    //Nav bar
     public void showHome(View view) {
 
         Intent i = new Intent(this, HomeActivity.class);

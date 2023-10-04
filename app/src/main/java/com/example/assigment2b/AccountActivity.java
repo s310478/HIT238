@@ -37,6 +37,7 @@ public class AccountActivity extends AppCompatActivity {
     private TextView txtD; // Used to store D.O.B.
     private String email; // Used to store email for other activities
     private String password; // Used to store password for other activities
+    private String role;
 
     // For editing profile pic
     private ImageView imgProfile;
@@ -73,6 +74,7 @@ public class AccountActivity extends AppCompatActivity {
         // Profile pic stuff Initialization
         btnProfile = (Button)findViewById(R.id.btnProfile);
         imgProfile = (ImageView)findViewById(R.id.imgProfile);
+
 
 
         // D.O.B. Initialization
@@ -133,8 +135,10 @@ public class AccountActivity extends AppCompatActivity {
         this.txtP = (EditText) findViewById(R.id.txtPassword2); // assign txtP = email field
         this.txtD = (TextView) findViewById(R.id.tvDOB); // assign txtD = D.O.B.
 
+
         Intent i = getIntent();
         String username = i.getStringExtra("username");
+        role = i.getStringExtra("role"); // assign role from intent
         if (username == null || "Log In".equals(username)) {
             txtUsr.setText("Log In"); // Display "Log in" if no username
             txtUsrF.setText(""); // Display no name in username field
@@ -218,6 +222,7 @@ public class AccountActivity extends AppCompatActivity {
         i.putExtra("username", txtU.getText().toString());
         i.putExtra("email", email);
         i.putExtra("password", password);
+        i.putExtra("role", role);
         startActivity(i);
     }
 
@@ -229,6 +234,7 @@ public class AccountActivity extends AppCompatActivity {
         Intent i = new Intent(this, HomeActivity.class);
         i.putExtra("username", txtU.getText().toString());
         i.putExtra("password", password);
+        i.putExtra("role", role);
         startActivity(i);
     }
 
@@ -240,6 +246,7 @@ public class AccountActivity extends AppCompatActivity {
         Intent i = new Intent(this, HomeActivity.class);
         i.putExtra("username", txtU.getText().toString());
         i.putExtra("password", password);
+        i.putExtra("role", role);
         startActivity(i);
     }
 
@@ -251,6 +258,7 @@ public class AccountActivity extends AppCompatActivity {
         i.putExtra("username", txtU.getText().toString());
         i.putExtra("password", password);
         i.putExtra("email", email);
+        i.putExtra("role", role);
         startActivity(i);
     }
 }
