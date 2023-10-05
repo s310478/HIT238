@@ -4,11 +4,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +27,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Initialize SharedPreferences - to save values
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
 
         // Initialize username
         this.txtUsr = (TextView) findViewById(R.id.lblUser);
@@ -60,31 +65,61 @@ public class HomeActivity extends AppCompatActivity {
 
             button.setVisibility(visibility); // set visibility of button
 
-            //
+        // Retrieve saved prices from SharedPreferences and update the price
+            String savedPrice = preferences.getString("savedPrice" + pair[1], "$0.00");
+            priceTextView.setText(savedPrice);
+
             button.setOnClickListener(v -> {
-                showEditPriceDialog(priceTextView);
+                showEditPriceDialog(priceTextView, pair[1]);
+            });
+        }
+
+        // For Star Ratings - keep their value
+        // Array of RatingBar IDs
+        int[] ratingBarIds = {R.id.ratingBar1, R.id.ratingBar2, R.id.ratingBar3};
+
+
+        // Loops ratingBars
+        for (int id : ratingBarIds) {
+            RatingBar ratingBar = findViewById(id);
+
+            // Load the saved rating for each RatingBar
+            float savedRating = preferences.getFloat("rating" + id, 0);
+            ratingBar.setRating(savedRating);
+
+            ratingBar.setOnRatingBarChangeListener((ratingBar1, rating, fromUser) -> {
+                // Save the rating when it's changed, using the RatingBar's ID to distinguish each rating
+                editor.putFloat("rating" + id, rating);
+                editor.apply();
             });
         }
     }
 
-    private void showEditPriceDialog(TextView priceTextView) {
+
+    //Displays a dialog allowing the user to edit the price
+    private void showEditPriceDialog(TextView priceTextView, int priceId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Price");
 
-        // Set up the input
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL); // for decimal numbers
+        input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         builder.setView(input);
 
-        // Set up the buttons
         builder.setPositiveButton("OK", (dialog, which) -> {
             String newPrice = input.getText().toString();
-            priceTextView.setText(newPrice);
-        });
-        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+            priceTextView.setText("$" + newPrice);
 
+            // Save the new price in SharedPreferences associated with the specific TextView ID
+            SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("savedPrice" + priceId, "$" + newPrice);
+            editor.apply();
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
         builder.show();
     }
+
 
 
 
@@ -110,54 +145,33 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void showHome(View view) {
-
+    public void navigateToActivity(View view, Class<?> targetActivity) {
         txtU = (TextView) findViewById(R.id.lblUser);
 
-        Intent i = new Intent(this, HomeActivity.class);
+        Intent i = new Intent(this, targetActivity);
         i.putExtra("username", txtU.getText().toString());
         i.putExtra("email", email);
         i.putExtra("password", password);
         i.putExtra("role", role);
         startActivity(i);
+    }
+
+    public void showHome(View view) {
+        navigateToActivity(view, HomeActivity.class);
     }
 
     public void showWish(View view) {
-
-        txtU = (TextView) findViewById(R.id.lblUser);
-
-        //Change this to WishActivity.class when created
-        Intent i = new Intent(this, HomeActivity.class);
-        i.putExtra("username", txtU.getText().toString());
-        i.putExtra("email", email);
-        i.putExtra("password", password);
-        i.putExtra("role", role);
-        startActivity(i);
+        // Change this to WishActivity.class when created
+        navigateToActivity(view, HomeActivity.class);
     }
 
     public void showCollection(View view) {
-
-        txtU = (TextView) findViewById(R.id.lblUser);
-
-        //Change this to CollectionActivity.class when created
-        Intent i = new Intent(this, HomeActivity.class);
-        i.putExtra("username", txtU.getText().toString());
-        i.putExtra("email", email);
-        i.putExtra("password", password);
-        i.putExtra("role", role);
-        startActivity(i);
+        // Change this to CollectionActivity.class when created
+        navigateToActivity(view, HomeActivity.class);
     }
 
     public void showAccount(View view) {
-
-        txtU = (TextView) findViewById(R.id.lblUser);
-
-        Intent i = new Intent(this, AccountActivity.class);
-        i.putExtra("username", txtU.getText().toString());
-        i.putExtra("email", email);
-        i.putExtra("password", password);
-        i.putExtra("role", role);
-        startActivity(i);
-
+        navigateToActivity(view, AccountActivity.class);
     }
+
 }

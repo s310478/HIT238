@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -71,6 +72,8 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
         // Profile pic stuff Initialization
         btnProfile = (Button)findViewById(R.id.btnProfile);
         imgProfile = (ImageView)findViewById(R.id.imgProfile);
@@ -79,12 +82,22 @@ public class AccountActivity extends AppCompatActivity {
 
         // D.O.B. Initialization
         mDisplayDate = (TextView) findViewById(R.id.tvDOB);
+        String savedDOB = preferences.getString("DOB", "");
+        if (!savedDOB.isEmpty()) {
+            mDisplayDate.setText(savedDOB);
+            mDisplayDate.setTextColor(Color.parseColor("#000000"));
+        }
 
         // Auto complete for Country
-        // Initiate an auto complete text view
         AutoCompleteTextView auto = (AutoCompleteTextView) findViewById(R.id.autoAddress);
-        ArrayAdapter adapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, countryList);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, countryList);
+        auto.setThreshold(1);
+        auto.setAdapter(adapter);
+
+        String savedCountry = preferences.getString("Country", "");
+        if (!savedCountry.isEmpty()) {
+            auto.setText(savedCountry);
+        }
 
         auto.setThreshold(1);//start searching from 1 character
         auto.setAdapter(adapter);   //set the adapter for displaying state name list
@@ -121,9 +134,21 @@ public class AccountActivity extends AppCompatActivity {
                 mDisplayDate.setText(date);
                 mDisplayDate.setTextColor(Color.parseColor("#000000"));
 
+                // Saving D.O.B to SharedPreferences
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("DOB", date);
+                editor.apply();
             }
-
         };
+
+        auto.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedCountry = parent.getItemAtPosition(position).toString();
+
+            // Saving selected country to SharedPreferences
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("Country", selectedCountry);
+            editor.apply();
+        });
 
 
 
@@ -207,58 +232,39 @@ public class AccountActivity extends AppCompatActivity {
     // Used to pass on current username to other activities
     public TextView txtU;
 
-    // Bottom nav bar & log in buttons
+    // Bottom nav bar & log in/out buttons
     public void showLogIn(View view) {
 
         Intent i = new Intent(this, LogInActivity.class);
         startActivity(i);
     }
 
-    public void showHome(View view) {
-
+    public void navigateToActivity(View view, Class<?> targetActivity) {
         txtU = (TextView) findViewById(R.id.lblUser);
 
-        Intent i = new Intent(this, HomeActivity.class);
+        Intent i = new Intent(this, targetActivity);
         i.putExtra("username", txtU.getText().toString());
         i.putExtra("email", email);
         i.putExtra("password", password);
         i.putExtra("role", role);
         startActivity(i);
+    }
+
+    public void showHome(View view) {
+        navigateToActivity(view, HomeActivity.class);
     }
 
     public void showWish(View view) {
-
-        txtU = (TextView) findViewById(R.id.lblUser);
-
-        //Change this to WishActivity.class when created
-        Intent i = new Intent(this, HomeActivity.class);
-        i.putExtra("username", txtU.getText().toString());
-        i.putExtra("password", password);
-        i.putExtra("role", role);
-        startActivity(i);
+        // Change this to WishActivity.class when created
+        navigateToActivity(view, HomeActivity.class);
     }
 
     public void showCollection(View view) {
-
-        txtU = (TextView) findViewById(R.id.lblUser);
-
-        //Change this to CollectionActivity.class when created
-        Intent i = new Intent(this, HomeActivity.class);
-        i.putExtra("username", txtU.getText().toString());
-        i.putExtra("password", password);
-        i.putExtra("role", role);
-        startActivity(i);
+        // Change this to CollectionActivity.class when created
+        navigateToActivity(view, HomeActivity.class);
     }
 
     public void showAccount(View view) {
-
-        txtU = (TextView) findViewById(R.id.lblUser);
-
-        Intent i = new Intent(this, AccountActivity.class);
-        i.putExtra("username", txtU.getText().toString());
-        i.putExtra("password", password);
-        i.putExtra("email", email);
-        i.putExtra("role", role);
-        startActivity(i);
+        navigateToActivity(view, AccountActivity.class);
     }
 }
