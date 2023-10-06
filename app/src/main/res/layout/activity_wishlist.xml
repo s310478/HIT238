@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="429dp"
+        android:layout_height="817dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/controlbackground" />
+
+    <ImageView
+        android:id="@+id/imgLogo4"
+        android:layout_width="398dp"
+        android:layout_height="121dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.004"
+        app:srcCompat="@drawable/imglogo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19">
+
+        <TextView
+            android:id="@+id/lblHeading"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Wishlist"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:textAllCaps="false" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_column="0"
+            app:layout_row="0">
+
+            <TextView
+                android:id="@+id/lblGameTitle2"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="The Legend of Zelda: Breath of the Wild"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/price2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="$89"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="408dp"
+        android:layout_height="443dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgLogo4"
+        app:layout_constraintVertical_bias="0.68">
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="444dp"
+            android:layout_marginLeft="5dp"
+            app:columnCount="2"
+            app:rowCount="3">
+
+            <ImageView
+                android:id="@+id/imgGame1"
+                android:layout_width="120dp"
+                android:layout_height="220dp"
+                app:layout_column="0"
+                app:layout_row="0"
+                app:srcCompat="@drawable/mario" />
+
+
+            <ImageView
+                android:id="@+id/imgGame2"
+                android:layout_width="120dp"
+                android:layout_height="220dp"
+                app:layout_column="0"
+                app:layout_row="1"
+                app:srcCompat="@drawable/zelda" />
+
+            <ImageView
+                android:id="@+id/imgGame2"
+                android:layout_width="120dp"
+                android:layout_height="220dp"
+                app:layout_column="0"
+                app:layout_row="2"
+                app:srcCompat="@drawable/kart" />
+
+
+            <TableLayout
+                android:layout_width="270dp"
+                android:layout_height="220dp"
+                android:padding="5dp"
+                app:layout_column="1"
+                app:layout_row="0">
+
+                <Button
+                    android:id="@+id/editPrice1"
+                    android:layout_width="47dp"
+                    android:layout_height="38dp"
+                    android:text="Edit Price"
+                    app:layout_column="1"
+                    app:layout_gravity="right"
+                    app:layout_row="0" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_column="1"
+                    app:layout_row="2">
+
+
+                    <TextView
+                        android:id="@+id/lblGameTitle1"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:text="Super Mario Odyssey"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/price1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="$99"
+                        android:textColor="#000000"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        app:layout_row="0" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RatingBar
+                        android:id="@+id/ratingBar1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:numStars="5"
+                        android:progressTint="#FBEC50"
+                        android:rating="4"
+                        android:stepSize="0.5"
+
+                        />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/btnAddWish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:onClick="addWish"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addlist"
+                        tools:srcCompat="@drawable/remove_icon_png_4" />
+
+                    <ImageButton
+                        android:id="@+id/btnAddCollection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:onClick="addCollection"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addcollection" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtAddWish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Remove"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtAddCollection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Add to Collection"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="270dp"
+                android:layout_height="220dp"
+                android:padding="5dp"
+                app:layout_column="1"
+                app:layout_row="1">
+
+                <Button
+                    android:id="@+id/editPrice2"
+                    android:layout_width="47dp"
+                    android:layout_height="38dp"
+                    android:text="Edit Price"
+                    app:layout_column="1"
+                    app:layout_gravity="right"
+                    app:layout_row="0" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RatingBar
+                        android:id="@+id/ratingBar2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:progressTint="#FBEC50"
+                        android:rating="4"
+                        android:stepSize="0.5" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/btnAddWish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:onClick="addWish"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addlist"
+                        tools:srcCompat="@drawable/remove_icon_png_4" />
+
+                    <ImageButton
+                        android:id="@+id/btnAddCollection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:onClick="addCollection"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addcollection" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtAddWish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Remove"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtAddCollection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Add to Collection"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="270dp"
+                android:layout_height="220dp"
+                android:padding="5dp"
+                app:layout_column="1"
+                app:layout_row="2">
+
+                <Button
+                    android:id="@+id/editPrice3"
+                    android:layout_width="47dp"
+                    android:layout_height="38dp"
+                    android:text="Edit Price"
+                    app:layout_column="1"
+                    app:layout_gravity="right"
+                    app:layout_row="0" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_column="0"
+                    app:layout_row="0">
+
+                    <TextView
+                        android:id="@+id/lblGameTitle3"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:text="Mario Kart 8 Deluxe"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/price3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="$89"
+                        android:textColor="#000000"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RatingBar
+                        android:id="@+id/ratingBar3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:progressTint="#FBEC50"
+                        android:rating="4"
+                        android:stepSize="0.5" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/btnAddWish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:onClick="addWish"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addlist"
+                        tools:srcCompat="@drawable/remove_icon_png_4" />
+
+                    <ImageButton
+                        android:id="@+id/btnAddCollection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#6200ee"
+                        android:onClick="addCollection"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/addcollection" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txtAddWish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Remove"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtAddCollection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Add to Collection"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+            </TableLayout>
+
+
+        </androidx.gridlayout.widget.GridLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="406dp"
+        android:layout_height="85dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#6200ee"
+            android:onClick="showHome"
+            android:scaleType="fitCenter"
+            android:src="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/btnWish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#6200ee"
+            android:onClick="showWish"
+            android:scaleType="fitCenter"
+            android:src="@drawable/lists" />
+
+        <ImageButton
+            android:id="@+id/btnCollection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#6200ee"
+            android:onClick="showCollection"
+            android:scaleType="fitCenter"
+            android:src="@drawable/collection" />
+
+        <ImageButton
+            android:id="@+id/btnAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#6200ee"
+            android:onClick="showAccount"
+            android:scaleType="fitCenter"
+            android:src="@drawable/account" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -105,11 +105,15 @@ public class LogInActivity extends AppCompatActivity {
     //Change class bellow to WishActivity when created
     public void showWish(View view) {
 
+        Toast.makeText(getApplicationContext(), "Wishlist Not functionally created", Toast.LENGTH_LONG).show();
+
         Intent i = new Intent(this, HomeActivity.class);
         startActivity(i);
     }
     //Change class bellow to CollectionActivity when created
     public void showCollection(View view) {
+
+        Toast.makeText(getApplicationContext(), "Collection Not functionally created", Toast.LENGTH_LONG).show();
 
         Intent i = new Intent(this, HomeActivity.class);
         startActivity(i);

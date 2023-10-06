@@ -255,11 +255,17 @@ public class AccountActivity extends AppCompatActivity {
     }
 
     public void showWish(View view) {
+
+        Toast.makeText(getApplicationContext(), "Wishlist Not functionally created", Toast.LENGTH_LONG).show();
+
         // Change this to WishActivity.class when created
         navigateToActivity(view, HomeActivity.class);
     }
 
     public void showCollection(View view) {
+
+        Toast.makeText(getApplicationContext(), "Collection Not functionally created", Toast.LENGTH_LONG).show();
+
         // Change this to CollectionActivity.class when created
         navigateToActivity(view, HomeActivity.class);
     }

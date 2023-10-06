@@ -14,6 +14,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 public class HomeActivity extends AppCompatActivity {
 
     private TextView txtUsr; // Used to display username in log in field (top right)
@@ -65,8 +67,11 @@ public class HomeActivity extends AppCompatActivity {
 
             button.setVisibility(visibility); // set visibility of button
 
+            // Set default prices
+            String[] defaultPrices = {"$79", "$89", "$79"};
+
         // Retrieve saved prices from SharedPreferences and update the price
-            String savedPrice = preferences.getString("savedPrice" + pair[1], "$0.00");
+            String savedPrice = preferences.getString("savedPrice" + pair[1], defaultPrices[Arrays.asList(idPairs).indexOf(pair)]);
             priceTextView.setText(savedPrice);
 
             button.setOnClickListener(v -> {
@@ -161,11 +166,17 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void showWish(View view) {
+
+        Toast.makeText(getApplicationContext(), "Wishlist Not functionally created", Toast.LENGTH_LONG).show();
+
         // Change this to WishActivity.class when created
         navigateToActivity(view, HomeActivity.class);
     }
 
     public void showCollection(View view) {
+
+        Toast.makeText(getApplicationContext(), "Collection Not functionally created", Toast.LENGTH_LONG).show();
+
         // Change this to CollectionActivity.class when created
         navigateToActivity(view, HomeActivity.class);
     }
